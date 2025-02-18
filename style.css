@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    font-family: 'Arial', sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden; /* Prevent scrolling */
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .yes {
+    background: #4caf50;
+    color: white;
+  }
+  
+  .no {
+    background: #f44336;
+    color: white;
+  }
+  
+  .btn:hover {
+    transform: scale(1.1);
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  .yes:hover {
+    animation: pulse 1s infinite;
+  }
+  
+  /* Balloon Styles */
+  .balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 60px;
+    height: 80px;
+    background: #ff4081;
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+  }
+  
+  .balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 50px;
+    background: #000;
+    transform: translateX(-50%);
+  }
+  
+  /* Heart Styles */
+  .heart {
+    position: absolute;
+    bottom: -50px;
+    width: 30px;
+    height: 30px;
+    background: #ff4081;
+    clip-path: polygon(
+      50% 0%,
+      70% 20%,
+      100% 30%,
+      80% 60%,
+      50% 100%,
+      20% 60%,
+      0% 30%,
+      30% 20%
+    );
+    animation: floatUp linear infinite;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100vh);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  
+    .yes {
+      max-width: 90%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
